@@ -15,12 +15,12 @@ package com.example.android.baseballapp;/*
  */
 
 
-        import android.os.Bundle;
-        import android.support.v7.app.AppCompatActivity;
-        import android.view.Menu;
-        import android.view.MenuItem;
-        import android.view.View;
-        import android.widget.TextView;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.android.baseballapp.R;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     int balls = 0;
     int strikes = 0;
-    int outs =0;
+    int outs = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         scoreTeamA = scoreTeamA + 1;
         displayForTeamA(scoreTeamA);
     }
+
     /**
      * Increase the score for Team B by 1 point.
      */
@@ -67,20 +68,31 @@ public class MainActivity extends AppCompatActivity {
      */
     public void addBall(View v) {
         balls = balls + 1;
+        if (balls > 3) {
+            return;
+        }
         displayForBalls("Balls: " + balls);
     }
+
     /**
      * Increase the balls by one.
      */
     public void addStrike(View v) {
         strikes = strikes + 1;
+        if (strikes > 3) {
+            return;
+        }
         displayForStrikes("Strikes: " + strikes);
     }
+
     /**
      * Increase the balls by one.
      */
     public void addOut(View v) {
         outs = outs + 1;
+        if (outs > 3) {
+            return;
+        }
         displayForOuts("Outs: " + outs);
     }
 
@@ -107,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team A.
      */
     public void displayForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_a_score);
+        TextView scoreView = findViewById(R.id.team_a_score);
         scoreView.setText(String.valueOf(score));
     }
 
@@ -115,19 +127,22 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team B.
      */
     public void displayForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_b_score);
+        TextView scoreView = findViewById(R.id.team_b_score);
         scoreView.setText(String.valueOf(score));
     }
+
     public void displayForBalls(String score) {
-        TextView scoreView = (TextView) findViewById(R.id.balls);
+        TextView scoreView = findViewById(R.id.balls);
         scoreView.setText(String.valueOf(score));
     }
+
     public void displayForStrikes(String score) {
-        TextView scoreView = (TextView) findViewById(R.id.strikes);
+        TextView scoreView = findViewById(R.id.strikes);
         scoreView.setText(String.valueOf(score));
     }
+
     public void displayForOuts(String score) {
-        TextView scoreView = (TextView) findViewById(R.id.outs);
+        TextView scoreView = findViewById(R.id.outs);
         scoreView.setText(String.valueOf(score));
     }
 }

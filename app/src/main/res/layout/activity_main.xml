@@ -11,186 +11,197 @@
      limitations under the License.
 -->
 <!-- Layout for the basketball score counter. -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#FAFAFA"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="81dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/linearLayout1">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"
-                android:padding="16dp"
-                android:text="Team A"
-                android:textColor="#616161"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/team_a_score"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:gravity="center"
-                android:paddingBottom="24dp"
-                android:text="0"
-                android:textColor="#000000"
-                android:textSize="56sp" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:onClick="addOneForTeamA"
-                android:text="Run" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/darker_gray" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"
-                android:padding="16dp"
-                android:text="Team B"
-                android:textColor="#616161"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/team_b_score"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:gravity="center"
-                android:paddingBottom="24dp"
-                android:text="0"
-                android:textColor="#000000"
-                android:textSize="56sp" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:onClick="addOneForTeamB"
-                android:text="Run" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <View android:background="@android:color/darker_gray"
-        android:layout_width = "match_parent"
-        android:layout_height="1dp"
-        android:layout_above="@id/ballsCount"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/view"/>
-    <Button
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/strikesCount"
-        android:layout_marginBottom="15dp"
-        android:text="Ball"
-        android:onClick="addBall"
+        android:layout_marginLeft="49dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Team A"
+        android:textColor="#616161"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/team_a_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:paddingBottom="24dp"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="56sp"
+        app:layout_constraintBottom_toBottomOf="@+id/team_b_score"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/team_b_score" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="addOneForTeamA"
+        android:text="Run"
+        app:layout_constraintEnd_toEndOf="@+id/team_a_score"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="@+id/team_a_score"
+        app:layout_constraintTop_toBottomOf="@+id/team_a_score" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Team B"
+        android:textColor="#616161"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/team_b_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:paddingBottom="24dp"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="56sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addOneForTeamB"
+        android:text="Run"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/team_b_score"
+        app:layout_constraintStart_toStartOf="@+id/team_b_score"
+        app:layout_constraintTop_toTopOf="@+id/button" />
+
+    <Button
         android:id="@+id/ballsCount"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:textSize="18sp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:onClick="addBall"
+        android:text="Ball"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/outsCount"
+        app:layout_constraintStart_toStartOf="@+id/strikesCount" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/outsCount"
-        android:layout_marginBottom="15dp"
-        android:text="Strike"
-        android:onClick="addStrike"
         android:id="@+id/strikesCount"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:textSize="18sp"/>
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/resetButton"
-        android:layout_marginBottom="10dp"
-        android:text="Out"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:onClick="addOut"
+        android:onClick="addStrike"
+        android:text="Strike"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/strikes"
+        app:layout_constraintStart_toStartOf="@+id/outsCount"
+        app:layout_constraintTop_toTopOf="@+id/strikes" />
+
+    <Button
         android:id="@+id/outsCount"
-        android:textSize="18sp"/>
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="250dp"
+        android:layout_marginBottom="75dp"
+        android:layout_marginLeft="99dp"
+        android:layout_marginStart="99dp"
+        android:onClick="addOut"
+        android:text="Out"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/resetCounts"
+        app:layout_constraintStart_toStartOf="@+id/resetCounts" />
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
         android:onClick="resetScore"
         android:text="Reset Score"
-        android:id="@+id/resetButton" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <Button
+        android:id="@+id/resetCounts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
         android:onClick="resetCounts"
         android:text="Reset Counts"
-        android:id="@+id/resetCounts" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
+        android:id="@+id/balls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/strikesCount"
-        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
         android:text="Balls:"
-        android:layout_marginLeft="150dp"
         android:textSize="24sp"
-        android:id="@+id/balls"/>
+        app:layout_constraintBottom_toBottomOf="@+id/ballsCount"
+        app:layout_constraintStart_toStartOf="@+id/strikes"
+        app:layout_constraintTop_toTopOf="@+id/ballsCount" />
 
     <TextView
+        android:id="@+id/strikes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/outsCount"
-        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="13dp"
         android:text="Strikes:"
-        android:layout_marginLeft="150dp"
         android:textSize="24sp"
-        android:id="@+id/strikes"/>
+        app:layout_constraintStart_toEndOf="@+id/strikesCount"
+        app:layout_constraintTop_toBottomOf="@+id/ballsCount" />
+
     <TextView
+        android:id="@+id/outs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/resetButton"
-        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:text="Outs:"
-        android:id="@+id/outs"
-        android:layout_marginLeft="150dp"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/outsCount"
+        app:layout_constraintStart_toStartOf="@+id/strikes"
+        app:layout_constraintTop_toTopOf="@+id/outsCount" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
